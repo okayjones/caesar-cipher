@@ -12,7 +12,7 @@ def encrypt(plain, key):
     for c in plain:
         if c.isalpha():
             alpha = LOWER if c.islower() else UPPER
-            encrypted += alpha[(alpha.index(c) + key) % 25]
+            encrypted += alpha[(alpha.index(c) + key) % 26]
         else:
             encrypted += c
     return encrypted
@@ -29,4 +29,4 @@ def crack(encrypted):
         attempts[decrypted] = matches
     best_match = max(attempts, key=attempts.get)
     return best_match
-
+    
